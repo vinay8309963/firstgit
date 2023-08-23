@@ -37,6 +37,7 @@ myForm.addEventListener('submit', onSubmit);
 // console.log(document.cookie)
 
 //Storing data into local storage
+
 function onSubmit(e)
 {
     e.preventDefault();
@@ -50,8 +51,21 @@ function onSubmit(e)
      }
      else{
         
-        localStorage.setItem(nameInput.value, emailInput.value);
+        let myObj = {
+            Name: nameInput.value,
+            Email: emailInput.value
+        };
+    
+     
+        let myObj_serialized = JSON.stringify(myObj);
+        localStorage.setItem(emailInput.value, myObj_serialized);
         nameInput.value = '';
         emailInput.value = '';
      }
 }
+// let myObj = {
+//     Name: nameInput.value,
+//     Email: emailInput.value
+// };
+// let myObj_deserialized = JSON.parse(myObj);
+// localStorage.setItem('myObj',myObj_deserialized);
